@@ -1,0 +1,8 @@
+# Minecraft Education Add-on
+.DS_Store
+*.mcworld
+*.mctemplate
+Thumb.db
+*.zip
+.idea/
+*.iml

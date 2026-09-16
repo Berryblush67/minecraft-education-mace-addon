@@ -1,0 +1,7 @@
+{
+  "mace:mace_weapon": {
+    "textures": {
+      "layer0": "textures/items/mace"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "format_version": 2,
+  "header": {
+    "description": "Custom Mace Weapon Textures",
+    "name": "Mace Weapon Resource Pack",
+    "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+    "version": [1, 0, 0],
+    "min_engine_version": [1, 16, 0]
+  },
+  "modules": [
+    {
+      "description": "Mace resource module",
+      "type": "resources",
+      "uuid": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbbb",
+      "version": [1, 0, 0]
+    }
+  ],
+  "dependencies": []
+}
