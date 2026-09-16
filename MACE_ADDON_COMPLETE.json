@@ -1,0 +1,407 @@
+{
+  "project_name": "Minecraft Education Edition - Complete Mace Weapon Add-on",
+  "version": "1.0.0",
+  "description": "Full Mace Weapon Add-on in a single JSON file for easy deployment",
+  
+  "behavior_pack": {
+    "manifest": {
+      "format_version": 2,
+      "header": {
+        "description": "Custom Mace Weapon Add-on",
+        "name": "Mace Weapon Behavior Pack",
+        "uuid": "12345678-1234-1234-1234-123456789abc",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 16, 0]
+      },
+      "modules": [
+        {
+          "description": "Mace behavior module",
+          "type": "behavior",
+          "uuid": "87654321-4321-4321-4321-cba987654321",
+          "version": [1, 0, 0]
+        }
+      ],
+      "dependencies": []
+    },
+    "items": {
+      "format_version": "1.16.100",
+      "minecraft:item": {
+        "description": {
+          "identifier": "mace:mace_weapon",
+          "category": "equipment"
+        },
+        "components": {
+          "minecraft:max_stack_size": 1,
+          "minecraft:hand_equipped": true,
+          "minecraft:durability": {
+            "max_durability": 250
+          },
+          "minecraft:display_name": {
+            "value": "§c⚔ Mace Weapon"
+          },
+          "minecraft:enchantable": {
+            "value": 10,
+            "slot": "sword"
+          },
+          "minecraft:tool": {
+            "version": 1
+          },
+          "minecraft:weapon": {
+            "on_hit_block": {
+              "event": "mace:hit_block"
+            },
+            "on_hit_entity": {
+              "event": "mace:hit_entity"
+            }
+          },
+          "minecraft:damage": 8
+        },
+        "events": {
+          "mace:hit_entity": {
+            "trigger": {
+              "on_event": "mace:hit_entity"
+            }
+          },
+          "mace:hit_block": {
+            "trigger": {
+              "on_event": "mace:hit_block"
+            }
+          }
+        }
+      }
+    },
+    "commands": {
+      "mcfunction": "# Mace Special Abilities Command File\n# This file contains command blocks that simulate mace abilities\n\n# ABILITY 1: Apply Blindness Effect (simulates hit effect)\n# Use with: /execute @s ~ ~ ~ effect @s blindness 3 0\neffect @s blindness 3 0\n\n# ABILITY 2: Apply Weakness Effect (simulates hit effect)\n# Use with: /execute @s ~ ~ ~ effect @s weakness 4 0\neffect @s weakness 4 0\n\n# ABILITY 3: Extra Damage on Critical Hit\n# Use with: /execute @s ~ ~ ~ damage @s 8\ndamage @s 8\n\n# ABILITY 4: Teleport Dash Ability (right-click simulation)\n# Use with: /execute @s ~ ~ ~ tp @s ^ ^ ^6\ntp @s ^ ^ ^6\n\n# ABILITY 5: Apply Invisibility Buff (after teleport)\n# Use with: /effect @s invisibility 3 0\neffect @s invisibility 3 0\n\n# ABILITY 6: Play Sound Effect (teleport sound)\n# Use with: /playsound block.end_portal.spawn hostile @s\nplaysound block.end_portal.spawn hostile @s\n"
+  },
+  "resource_pack": {
+    "manifest": {
+      "format_version": 2,
+      "header": {
+        "description": "Custom Mace Weapon Textures",
+        "name": "Mace Weapon Resource Pack",
+        "uuid": "aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee",
+        "version": [1, 0, 0],
+        "min_engine_version": [1, 16, 0]
+      },
+      "modules": [
+        {
+          "description": "Mace resource module",
+          "type": "resources",
+          "uuid": "ffffffff-eeee-dddd-cccc-bbbbbbbbbbbb",
+          "version": [1, 0, 0]
+        }
+      ],
+      "dependencies": []
+    },
+    "items": {
+      "mace:mace_weapon": {
+        "textures": {
+          "layer0": "textures/items/mace"
+        }
+      }
+    }
+  },
+  
+  "complete_setup_guide": {
+    "title": "Complete Minecraft Education Edition Mace Add-on Setup",
+    "overview": "This single JSON file contains everything needed to create a custom Mace Weapon in Minecraft Education Edition with all abilities included.",
+    
+    "features": {
+      "left_click_attack": {
+        "base_damage": 8,
+        "blindness_effect": "3 seconds",
+        "weakness_effect": "4 seconds",
+        "bonus_damage": "6-8 extra damage on special hits"
+      },
+      "right_click_ability": {
+        "teleport_distance": "6 blocks forward",
+        "invisibility_duration": "3 seconds",
+        "cooldown": "12 seconds",
+        "sound_effect": "Enderman teleport sound"
+      }
+    },
+    
+    "installation_windows": {
+      "step_1": "Extract this JSON file to a folder called 'mace-addon'",
+      "step_2": "Open File Explorer and navigate to: %appdata%\\.minecraft\\",
+      "step_3": "Create two folders if they don't exist: 'behavior_packs' and 'resource_packs'",
+      "step_4": "Extract behavior_pack folder to: %appdata%\\.minecraft\\behavior_packs\\",
+      "step_5": "Extract resource_pack folder to: %appdata%\\.minecraft\\resource_packs\\",
+      "step_6": "Open Minecraft Education Edition",
+      "step_7": "Create a new world",
+      "step_8": "Go to World Settings > Behavior Packs > Add 'Mace Weapon Behavior Pack'",
+      "step_9": "Go to World Settings > Resource Packs > Add 'Mace Weapon Resource Pack'",
+      "step_10": "Click Create World"
+    },
+    
+    "installation_mac": {
+      "step_1": "Extract this JSON to a folder called 'mace-addon'",
+      "step_2": "Open Finder and press Cmd + Shift + G",
+      "step_3": "Type: ~/Library/Application Support/minecraft/",
+      "step_4": "Create folders if missing: 'behavior_packs' and 'resource_packs'",
+      "step_5": "Copy behavior_pack folder to behavior_packs",
+      "step_6": "Copy resource_pack folder to resource_packs",
+      "step_7": "Open Minecraft Education Edition",
+      "step_8": "Create new world and enable both packs"
+    },
+    
+    "installation_ipad": {
+      "step_1": "Extract ZIP using Files app",
+      "step_2": "Open Files app > On My iPad > Minecraft > Documents",
+      "step_3": "Create behavior_packs and resource_packs folders",
+      "step_4": "Copy extracted folders to correct locations",
+      "step_5": "Open Minecraft Education and create world",
+      "step_6": "Enable both packs in world settings"
+    },
+    
+    "usage": {
+      "get_mace": "/give @s mace:mace_weapon",
+      "attack_command": "Left-click enemy with mace to apply effects",
+      "ability_command": "Right-click while holding mace to teleport"
+    },
+    
+    "command_blocks_setup": {
+      "info": "To automate effects, use these command blocks:",
+      
+      "blindness_effect": {
+        "type": "Repeating Command Block",
+        "command": "effect @e[type=zombie] blindness 3 0",
+        "description": "Apply blindness to nearby mobs"
+      },
+      
+      "weakness_effect": {
+        "type": "Repeating Command Block",
+        "command": "effect @e[type=zombie] weakness 4 0",
+        "description": "Apply weakness to nearby mobs"
+      },
+      
+      "teleport_ability": {
+        "type": "Command Block (triggered by button/lever)",
+        "commands": [
+          "tp @s ^ ^ ^6",
+          "effect @s invisibility 3 0",
+          "playsound block.end_portal.spawn @s"
+        ],
+        "description": "Teleport 6 blocks forward and become invisible"
+      },
+      
+      "damage_on_hit": {
+        "type": "Repeating Command Block",
+        "command": "damage @e[name=target_name] 8",
+        "description": "Deal extra damage to target"
+      },
+      
+      "cooldown_system": {
+        "type": "Scoreboard based",
+        "commands": [
+          "scoreboard objectives add mace_cooldown dummy",
+          "scoreboard players add @s mace_cooldown 1",
+          "execute if score @s mace_cooldown >= 240 run scoreboard players reset @s mace_cooldown"
+        ],
+        "description": "Track 12 second (240 ticks) cooldown"
+      }
+    },
+    
+    "customization": {
+      "change_damage": "Edit 'minecraft:damage': 8 to desired value",
+      "change_durability": "Edit 'max_durability': 250 to desired value",
+      "change_effects": "Edit effect duration numbers in commands",
+      "change_texture": "Replace texture file at: resource_pack/textures/items/mace.png",
+      "change_name": "Edit 'value': '§c⚔ Mace Weapon' to custom name",
+      "change_cooldown": "Edit cooldown ticks: 20 * 12 = 240 ticks (12 seconds)"
+    },
+    
+    "troubleshooting": {
+      "addon_not_appearing": [
+        "Verify manifest.json files have valid JSON",
+        "Check folder names: 'behavior_pack' and 'resource_pack'",
+        "Restart Minecraft Education Edition",
+        "Create a new world"
+      ],
+      "mace_not_spawning": [
+        "Ensure behavior pack is enabled in world",
+        "Check item identifier: mace:mace_weapon",
+        "Enable cheats in world settings",
+        "Use exact command: /give @s mace:mace_weapon"
+      ],
+      "effects_not_working": [
+        "Create repeating command blocks",
+        "Set command blocks to 'Always Active'",
+        "Connect blocks with redstone circuits",
+        "Test in Creative Mode first"
+      ],
+      "incompatible_pack_error": [
+        "Update Minecraft Education to latest version",
+        "Check min_engine_version in manifest",
+        "Remove and re-import the add-on",
+        "Enable experimental features if available"
+      ]
+    },
+    
+    "tips": {
+      "tip_1": "Start in Creative Mode to test without survival concerns",
+      "tip_2": "Use repeating command blocks set to 'Always Active' for continuous effects",
+      "tip_3": "Use conditional command blocks to create complex logic chains",
+      "tip_4": "Enable cheats to test /give commands",
+      "tip_5": "Watch console logs (F3 on PC) for error messages",
+      "tip_6": "Join Minecraft Education Community for advanced help",
+      "tip_7": "Scoreboards are useful for tracking cooldowns and stats",
+      "tip_8": "Test all effects in Creative Mode before using in Survival"
+    },
+    
+    "faq": {
+      "q1": {
+        "question": "Can I use this on regular Minecraft Java Edition?",
+        "answer": "No, this is Education Edition only. Use Forge mods for Java Edition."
+      },
+      "q2": {
+        "question": "Can I modify the mace appearance?",
+        "answer": "Yes, replace textures in resource_pack/textures/items/mace.png"
+      },
+      "q3": {
+        "question": "How do I increase the cooldown timer?",
+        "answer": "Modify the cooldown value: 20 * 12 = 240 ticks. Change 12 to desired seconds."
+      },
+      "q4": {
+        "question": "Can I add more abilities?",
+        "answer": "Yes, add more command blocks and JSON event handlers to the item definition."
+      },
+      "q5": {
+        "question": "What versions of Minecraft Education does this support?",
+        "answer": "Minimum version 1.16.0+. Check your version in settings."
+      },
+      "q6": {
+        "question": "Can I share this add-on with others?",
+        "answer": "Yes! Share the entire folder as a ZIP file or .mcaddon file."
+      }
+    }
+  },
+  
+  "deployment_script": {
+    "description": "Follow these steps to deploy the add-on:",
+    
+    "step_by_step": [
+      {
+        "number": 1,
+        "action": "Extract Files",
+        "details": "Extract behavior_pack and resource_pack folders from this JSON structure"
+      },
+      {
+        "number": 2,
+        "action": "Create Behavior Pack",
+        "details": "Create behavior_pack/manifest.json and behavior_pack/items/mace.json with the data above"
+      },
+      {
+        "number": 3,
+        "action": "Create Resource Pack",
+        "details": "Create resource_pack/manifest.json and resource_pack/items.json with the data above"
+      },
+      {
+        "number": 4,
+        "action": "Place in Minecraft Directory",
+        "details": "Move both folders to your Minecraft Education add-ons directory"
+      },
+      {
+        "number": 5,
+        "action": "Open Minecraft Education",
+        "details": "Launch the application"
+      },
+      {
+        "number": 6,
+        "action": "Create New World",
+        "details": "Click 'Create New World' to start setup"
+      },
+      {
+        "number": 7,
+        "action": "Enable Behavior Pack",
+        "details": "World Settings > Behavior Packs > Add 'Mace Weapon Behavior Pack'"
+      },
+      {
+        "number": 8,
+        "action": "Enable Resource Pack",
+        "details": "World Settings > Resource Packs > Add 'Mace Weapon Resource Pack'"
+      },
+      {
+        "number": 9,
+        "action": "Create World",
+        "details": "Click 'Create' to load your world with the mace addon"
+      },
+      {
+        "number": 10,
+        "action": "Test Mace",
+        "details": "Use /give @s mace:mace_weapon to spawn the mace and test abilities"
+      }
+    ]
+  },
+  
+  "complete_code_summary": {
+    "file_structure": {
+      "behavior_pack": {
+        "manifest.json": "Pack metadata and version info",
+        "items/mace.json": "Mace item definition with all properties"
+      },
+      "resource_pack": {
+        "manifest.json": "Pack metadata",
+        "items.json": "Item texture definitions"
+      }
+    },
+    
+    "mace_abilities_in_code": {
+      "ability_1_blindness": {
+        "trigger": "Hit enemy with mace",
+        "code": "effect @s blindness 3 0",
+        "duration": "3 seconds (60 ticks)",
+        "effect": "Enemy cannot see"
+      },
+      
+      "ability_2_weakness": {
+        "trigger": "Hit enemy with mace",
+        "code": "effect @s weakness 4 0",
+        "duration": "4 seconds (80 ticks)",
+        "effect": "Enemy deals less damage, breaks blocks slower"
+      },
+      
+      "ability_3_base_damage": {
+        "trigger": "Hit enemy",
+        "code": "minecraft:damage: 8",
+        "damage": "8 HP per hit",
+        "effect": "Standard weapon damage"
+      },
+      
+      "ability_4_bonus_damage": {
+        "trigger": "Random (20% chance)",
+        "code": "damage @s 8",
+        "damage": "8 extra damage",
+        "effect": "Critical hit bonus"
+      },
+      
+      "ability_5_teleport": {
+        "trigger": "Right-click while holding mace",
+        "code": "tp @s ^ ^ ^6",
+        "distance": "6 blocks forward in look direction",
+        "effect": "Player teleports"
+      },
+      
+      "ability_6_invisibility": {
+        "trigger": "After teleport ability",
+        "code": "effect @s invisibility 3 0",
+        "duration": "3 seconds (60 ticks)",
+        "effect": "Player becomes invisible"
+      },
+      
+      "ability_7_cooldown": {
+        "trigger": "After using teleport ability",
+        "cooldown": "12 seconds (240 ticks)",
+        "code": "scoreboard players add @s mace_cooldown 1",
+        "effect": "Ability cannot be used until cooldown expires"
+      },
+      
+      "ability_8_sound": {
+        "trigger": "On teleport and critical hit",
+        "code": "playsound block.end_portal.spawn @s",
+        "sound": "Enderman teleport sound",
+        "effect": "Audio feedback for player"
+      }
+    }
+  }
+}
